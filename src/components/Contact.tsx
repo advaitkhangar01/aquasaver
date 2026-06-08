@@ -207,7 +207,7 @@ export default function Contact() {
                       type="text"
                       required
                       className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-white/20 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 backdrop-blur-sm focus:bg-white/[0.04]"
-                      placeholder="e.g. John Doe"
+                      placeholder="Enter your name"
                     />
                   </div>
 
@@ -221,7 +221,7 @@ export default function Contact() {
                       type="tel"
                       required
                       className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-white/20 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 backdrop-blur-sm focus:bg-white/[0.04]"
-                      placeholder="e.g. +91 98765 43210"
+                      placeholder="Enter your phone number"
                     />
                   </div>
                 </div>
@@ -236,7 +236,7 @@ export default function Contact() {
                       name="email"
                       type="email"
                       className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-white/20 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 backdrop-blur-sm focus:bg-white/[0.04]"
-                      placeholder="e.g. john.doe@example.com"
+                      placeholder="Enter your email address"
                     />
                   </div>
 
@@ -274,7 +274,7 @@ export default function Contact() {
                     rows={4}
                     required
                     className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-white/20 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 backdrop-blur-sm resize-none focus:bg-white/[0.04]"
-                    placeholder="e.g. I need an automatic water level controller for an overhead tank and underground sump..."
+                    placeholder="Enter your message or requirement"
                   />
                 </div>
 
