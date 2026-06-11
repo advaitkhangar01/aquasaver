@@ -26,7 +26,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative bg-bg-dark pt-28 pb-20 overflow-hidden min-h-screen lg:py-24 flex items-center">
+    <section id="hero" className="relative bg-bg-dark pt-28 pb-20 overflow-hidden min-h-screen lg:py-24 flex items-center">
       {/* Background Ripple / Tech Accent SVG */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] translate-x-1/3 -translate-y-1/3 opacity-5 pointer-events-none z-0">
         <svg viewBox="0 0 100 100" className="w-full h-full text-primary fill-none stroke-current" strokeWidth="0.3">
