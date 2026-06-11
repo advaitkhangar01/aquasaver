@@ -120,7 +120,7 @@ export default function Navbar() {
             <div className="flex justify-between items-center">
 
               {/* Logo */}
-              <Link href="/" className="flex items-center gap-2.5 flex-shrink-0 group">
+              <Link href="/" className="flex items-center gap-2 flex-shrink-0 group">
                 <div className="relative flex items-center">
                   <div className={`relative overflow-hidden rounded-2xl bg-gradient-to-tr from-white to-neutral-50 border border-primary/10 shadow-[0_4px_16px_rgba(91,184,232,0.08)] group-hover:border-primary/35 transition-all duration-500 group-hover:shadow-[0_8px_24px_rgba(91,184,232,0.18)] group-hover:scale-[1.03] ${
                     isScrolled ? "p-1.5" : "p-2"
@@ -131,7 +131,7 @@ export default function Navbar() {
                       width={240}
                       height={68}
                       className={`w-auto object-contain transition-all duration-500 ${
-                        isScrolled ? "h-[44px] md:h-[50px]" : "h-[54px] md:h-[64px]"
+                        isScrolled ? "h-[38px] lg:h-[44px] xl:h-[50px]" : "h-[46px] lg:h-[54px] xl:h-[64px]"
                       }`}
                       priority
                     />
@@ -139,7 +139,7 @@ export default function Navbar() {
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out z-10" />
                   </div>
                   {/* Active status indicator dot */}
-                  <span className="relative flex h-3 w-3 ml-3">
+                  <span className="relative flex h-3 w-3 ml-2.5">
                     <span className="animate-[ping_1.5s_cubic-bezier(0,0,0.2,1)_infinite] absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-3 w-3 bg-success shadow-[0_0_8px_rgba(34,197,94,0.6)]"></span>
                   </span>
@@ -147,7 +147,7 @@ export default function Navbar() {
               </Link>
 
               {/* Desktop Nav Links */}
-              <div className="hidden lg:flex items-center gap-1.5 bg-neutral-50/50 p-1 rounded-xl border border-neutral-100/80">
+              <div className="hidden lg:flex items-center gap-0.5 xl:gap-1 bg-neutral-50/50 p-1 rounded-xl border border-neutral-100/80">
                 {NAV_LINKS.map((link) => {
                   const isActive = activeLink === link.name;
                   return (
@@ -155,14 +155,14 @@ export default function Navbar() {
                       key={link.name}
                       href={link.href}
                       onClick={() => setActiveLink(link.name)}
-                      className={`relative px-4 py-2 rounded-lg text-[14px] font-medium transition-all duration-300 group flex items-center justify-center
+                      className={`relative px-2 xl:px-3.5 py-1.5 xl:py-2 rounded-lg text-[13px] xl:text-[14.5px] font-medium transition-all duration-300 group flex items-center justify-center whitespace-nowrap
                         ${isActive
                           ? "text-primary bg-white shadow-[0_2px_8px_rgba(91,184,232,0.1)] border border-primary/10 font-bold"
                           : "text-text-mid hover:text-primary hover:bg-white/80 hover:shadow-[0_1px_4px_rgba(0,0,0,0.01)] border border-transparent"
                         }`}
                     >
                       {link.name}
-                      <span className={`absolute bottom-0 left-4 right-4 h-[2px] bg-primary rounded-full transition-all duration-300 origin-left scale-x-0 group-hover:scale-x-100 ${
+                      <span className={`absolute bottom-0 left-2 xl:left-4 right-2 xl:right-4 h-[2px] bg-primary rounded-full transition-all duration-300 origin-left scale-x-0 group-hover:scale-x-100 ${
                         isActive ? "scale-x-100" : ""
                       }`} />
                     </Link>
@@ -171,12 +171,12 @@ export default function Navbar() {
               </div>
 
               {/* Desktop CTAs */}
-              <div className="hidden lg:flex items-center gap-3">
+              <div className="hidden lg:flex items-center gap-2 xl:gap-3 flex-shrink-0">
                 <Link
                   href={`tel:${PHONE}`}
-                  className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-primary/20 bg-primary/5 text-text-mid hover:border-primary hover:text-primary hover:bg-primary/10 text-[13.5px] font-semibold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                  className="flex items-center gap-1.5 xl:gap-2 px-3 xl:px-5 py-2 xl:py-2.5 rounded-xl border border-primary/20 bg-primary/5 text-text-mid hover:border-primary hover:text-primary hover:bg-primary/10 text-[13px] xl:text-[14px] font-semibold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap"
                 >
-                  <Phone size={16} weight="fill" className="animate-[pulse_2s_infinite]" />
+                  <Phone size={15} weight="fill" className="animate-[pulse_2s_infinite] flex-shrink-0" />
                   <span>Call Us</span>
                 </Link>
 
@@ -184,9 +184,9 @@ export default function Navbar() {
                   href={WA_QUOTE}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative overflow-hidden flex items-center gap-2 px-5.5 py-2.5 rounded-xl bg-gradient-to-r from-primary to-primary-dark text-white text-[14px] font-display font-bold shadow-[0_4px_16px_rgba(91,184,232,0.3)] hover:shadow-[0_6px_24px_rgba(91,184,232,0.45)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
+                  className="group relative overflow-hidden flex items-center gap-1.5 xl:gap-2 px-3.5 xl:px-5.5 py-2 xl:py-2.5 rounded-xl bg-gradient-to-r from-primary to-primary-dark text-white text-[13px] xl:text-[14px] font-display font-bold shadow-[0_4px_16px_rgba(91,184,232,0.3)] hover:shadow-[0_6px_24px_rgba(91,184,232,0.45)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 whitespace-nowrap"
                 >
-                  <WhatsappLogo size={18} weight="fill" />
+                  <WhatsappLogo size={17} weight="fill" className="flex-shrink-0" />
                   <span>Free Quote</span>
                   {/* Shimmer sweep effect on hover */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
