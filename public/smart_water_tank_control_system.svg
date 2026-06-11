@@ -1,0 +1,632 @@
+<svg viewBox="0 0 1200 820" width="1200" height="820" role="img" xmlns="http://www.w3.org/2000/svg">
+<title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Sing Saab Restaurant Water Automation</title>
+<desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Automated water management system for Sing Saab Restaurant showing open well, bore well, pumps, NRVs, solenoid valves, normal valves, sensors, and first floor and kitchen overhead tanks.</desc>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+  <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#0b1329"/>
+    <stop offset="100%" stop-color="#111b30"/>
+  </linearGradient>
+  <linearGradient id="groundGrad" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#111827"/>
+    <stop offset="100%" stop-color="#030712"/>
+  </linearGradient>
+  <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#5BB8E8" stop-opacity="0.8"/>
+    <stop offset="100%" stop-color="#1e4f66" stop-opacity="0.9"/>
+  </linearGradient>
+  <linearGradient id="tankBodyGrad" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#1e293b"/>
+    <stop offset="50%" stop-color="#334155"/>
+    <stop offset="100%" stop-color="#0f172a"/>
+  </linearGradient>
+  <linearGradient id="pumpGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#334155"/>
+    <stop offset="100%" stop-color="#0f172a"/>
+  </linearGradient>
+  <linearGradient id="buildingGrad" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#0f172a" stop-opacity="0.8"/>
+    <stop offset="100%" stop-color="#1e293b" stop-opacity="0.8"/>
+  </linearGradient>
+  <linearGradient id="panelGrad" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#1e293b"/>
+    <stop offset="100%" stop-color="#0b0f19"/>
+  </linearGradient>
+  <linearGradient id="wellWater" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#5BB8E8" stop-opacity="0.7"/>
+    <stop offset="100%" stop-color="#1a3b4c" stop-opacity="0.9"/>
+  </linearGradient>
+  <clipPath id="tankClip1"><rect x="182" y="72" width="116" height="120" rx="6"/></clipPath>
+  <clipPath id="tankClip2"><rect x="902" y="72" width="116" height="120" rx="6"/></clipPath>
+  <clipPath id="wellClip"><ellipse cx="130" cy="682" rx="52" ry="18"/></clipPath>
+  <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+    <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+  </filter>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap');
+    @keyframes pipeFlow {
+      from { stroke-dashoffset: 24; }
+      to { stroke-dashoffset: 0; }
+    }
+    @keyframes ledPulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; filter: drop-shadow(0 0 5px currentColor); }
+    }
+    @keyframes ledBlink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0.15; }
+    }
+    @keyframes sensorRing {
+      0% { r: 3; opacity: 1; }
+      100% { r: 15; opacity: 0; }
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 0.9; }
+    }
+    @keyframes waveRipple {
+      0%, 100% { transform: translateY(0) scaleY(1); }
+      50% { transform: translateY(-2px) scaleY(1.05); }
+    }
+    @keyframes floatWave {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-40px); }
+    }
+    .flow-line {
+      stroke: #00e5ff;
+      stroke-width: 2.5;
+      stroke-dasharray: 6, 6;
+      animation: pipeFlow 1.2s linear infinite;
+    }
+    .flow-line-reverse {
+      stroke: #00e5ff;
+      stroke-width: 2.5;
+      stroke-dasharray: 6, 6;
+      animation: pipeFlow 1.2s linear infinite reverse;
+    }
+    .led-pwr {
+      fill: #00e676 !important;
+      filter: drop-shadow(0 0 3px #00e676);
+    }
+    .led-pmp-active {
+      fill: #00e676 !important;
+      animation: ledPulse 1.5s ease-in-out infinite;
+    }
+    .led-pmp-standby {
+      fill: #ffea00 !important;
+      animation: ledPulse 3s ease-in-out infinite;
+    }
+    .led-alm-pulse {
+      fill: #ff1744 !important;
+      animation: ledPulse 1s ease-in-out infinite;
+    }
+    .led-net-blink {
+      fill: #00e5ff !important;
+      animation: ledBlink 0.3s steps(2) infinite;
+    }
+    .sensor-wave {
+      stroke-width: 1.5;
+      fill: none;
+      transform-origin: center;
+      animation: sensorRing 1.8s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+    }
+    .sensor-wave-1 { animation-delay: 0s; }
+    .sensor-wave-2 { animation-delay: 0.9s; }
+    .star-twinkle {
+      animation: twinkle 3s ease-in-out infinite;
+    }
+    .water-ripple {
+      animation: waveRipple 4s ease-in-out infinite;
+    }
+    /* SVG label texts redesign */
+    text {
+      font-family: 'Outfit', 'Inter', 'Segoe UI', sans-serif !important;
+      letter-spacing: 0.04em;
+    }
+    .title-text {
+      font-family: 'Outfit', 'Inter', 'Segoe UI', sans-serif !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.15em !important;
+    }
+    .subtitle-text {
+      font-family: 'Outfit', 'Inter', 'Segoe UI', sans-serif !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.08em !important;
+    }
+    .tank-label-text {
+      fill: #ffffff !important;
+      font-weight: 700 !important;
+      font-size: 10px !important;
+      letter-spacing: 0.08em !important;
+    }
+    .pump-label-text {
+      fill: #e2e8f0 !important;
+      font-weight: 700 !important;
+      font-size: 10px !important;
+      letter-spacing: 0.05em !important;
+    }
+    .well-label-text {
+      fill: #ffcc80 !important;
+      font-weight: 700 !important;
+      font-size: 11px !important;
+      letter-spacing: 0.06em !important;
+    }
+    .valve-label-text {
+      fill: #90caf9 !important;
+      font-weight: 700 !important;
+      font-size: 9px !important;
+      letter-spacing: 0.05em !important;
+    }
+    .nv-label-text {
+      fill: #cbd5e1 !important;
+      font-weight: 600 !important;
+      font-size: 8px !important;
+      letter-spacing: 0.04em !important;
+    }
+    .legend-text {
+      fill: #b0bec5 !important;
+      font-weight: 400 !important;
+      font-size: 9px !important;
+      letter-spacing: 0.04em !important;
+    }
+  </style>
+</defs>
+
+<!-- Background -->
+<rect x="0" y="0" width="1200" height="820" fill="#0b1329"/>
+
+<!-- Sky zone -->
+<rect x="0" y="0" width="1200" height="480" fill="url(#skyGrad)" opacity="0.3"/>
+
+<!-- Ground zone -->
+<rect x="0" y="620" width="1200" height="200" fill="url(#groundGrad)"/>
+<rect x="0" y="620" width="1200" height="8" fill="#1e293b"/>
+
+<!-- Stars (subtle) -->
+<circle cx="50" cy="30" r="1" fill="#fff" opacity="0.4" class="star-twinkle" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto;animation-delay:0s"/>
+<circle cx="180" cy="18" r="1.2" fill="#fff" opacity="0.5" class="star-twinkle" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto;animation-delay:0.5s"/>
+<circle cx="350" cy="25" r="1" fill="#fff" opacity="0.3" class="star-twinkle" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.3;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto;animation-delay:1s"/>
+<circle cx="820" cy="15" r="1.2" fill="#fff" opacity="0.4" class="star-twinkle" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto;animation-delay:1.5s"/>
+<circle cx="1050" cy="30" r="1" fill="#fff" opacity="0.5" class="star-twinkle" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto;animation-delay:2s"/>
+<circle cx="1150" cy="12" r="1" fill="#fff" opacity="0.3" class="star-twinkle" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.3;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto;animation-delay:2.5s"/>
+
+<!-- ===== TITLE AREA ===== -->
+<text x="600" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#e3f2fd" letter-spacing="2" class="title-text" style="fill:rgb(227, 242, 253);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:22px;font-weight:700;text-anchor:middle;dominant-baseline:auto">SING SAAB RESTAURANT WATER AUTOMATION</text>
+<text x="600" y="56" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#90caf9" letter-spacing="1" class="subtitle-text" style="fill:rgb(144, 202, 249);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Automated Water Management · Sing Saab Restaurant</text>
+
+<!-- ===== BUILDING (CENTER) ===== -->
+<!-- Building shadow -->
+<rect x="460" y="195" width="280" height="340" rx="4" fill="#000" opacity="0.3" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.3;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Building face -->
+<rect x="455" y="190" width="290" height="340" rx="4" fill="url(#buildingGrad)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Building side (isometric right) -->
+<polygon points="745,190 785,210 785,550 745,530" fill="#90a4ae" style="fill:rgb(144, 164, 174);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Building top -->
+<polygon points="455,190 745,190 785,210 495,210" fill="#cfd8dc" style="fill:rgb(207, 216, 220);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Roof ledge -->
+<rect x="450" y="185" width="300" height="12" rx="2" fill="#eceff1" style="fill:rgb(236, 239, 241);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Windows -->
+<rect x="475" y="230" width="50" height="60" rx="3" fill="#1565c0" opacity="0.8" style="fill:rgb(21, 101, 192);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="545" y="230" width="50" height="60" rx="3" fill="#1565c0" opacity="0.8" style="fill:rgb(21, 101, 192);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="615" y="230" width="50" height="60" rx="3" fill="#1565c0" opacity="0.8" style="fill:rgb(21, 101, 192);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="685" y="230" width="50" height="60" rx="3" fill="#1565c0" opacity="0.8" style="fill:rgb(21, 101, 192);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="475" y="320" width="50" height="60" rx="3" fill="#1e88e5" opacity="0.7" style="fill:rgb(30, 136, 229);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="545" y="320" width="50" height="60" rx="3" fill="#1e88e5" opacity="0.7" style="fill:rgb(30, 136, 229);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="615" y="320" width="50" height="60" rx="3" fill="#1e88e5" opacity="0.7" style="fill:rgb(30, 136, 229);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="685" y="320" width="50" height="60" rx="3" fill="#1e88e5" opacity="0.7" style="fill:rgb(30, 136, 229);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="475" y="410" width="50" height="60" rx="3" fill="#42a5f5" opacity="0.5" style="fill:rgb(66, 165, 245);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="545" y="410" width="50" height="60" rx="3" fill="#42a5f5" opacity="0.5" style="fill:rgb(66, 165, 245);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="615" y="410" width="50" height="60" rx="3" fill="#42a5f5" opacity="0.5" style="fill:rgb(66, 165, 245);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="685" y="410" width="50" height="60" rx="3" fill="#42a5f5" opacity="0.5" style="fill:rgb(66, 165, 245);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Door -->
+<rect x="560" y="470" width="80" height="60" rx="3" fill="#0d47a1" style="fill:rgb(13, 71, 161);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="580" y="480" width="16" height="30" rx="2" fill="#1565c0" style="fill:rgb(21, 101, 192);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="604" y="480" width="16" height="30" rx="2" fill="#1565c0" style="fill:rgb(21, 101, 192);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Window highlights -->
+<rect x="479" y="234" width="8" height="52" rx="1" fill="#90caf9" opacity="0.4" style="fill:rgb(144, 202, 249);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="549" y="234" width="8" height="52" rx="1" fill="#90caf9" opacity="0.4" style="fill:rgb(144, 202, 249);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="619" y="234" width="8" height="52" rx="1" fill="#90caf9" opacity="0.4" style="fill:rgb(144, 202, 249);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="689" y="234" width="8" height="52" rx="1" fill="#90caf9" opacity="0.4" style="fill:rgb(144, 202, 249);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- ===== FIRST FLOOR TANK (LEFT ROOFTOP) ===== -->
+<!-- Tank stand -->
+<rect x="218" y="156" width="8" height="34" fill="#546e7a" style="fill:rgb(84, 110, 122);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="254" y="156" width="8" height="34" fill="#546e7a" style="fill:rgb(84, 110, 122);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="214" y="182" width="52" height="6" rx="1" fill="#455a64" style="fill:rgb(69, 90, 100);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Tank body -->
+<rect x="182" y="68" width="116" height="124" rx="8" fill="url(#tankBodyGrad)" stroke="#90a4ae" stroke-width="1.5" style="stroke:rgb(144, 164, 174);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Water inside tank -->
+<rect x="184" y="120" width="112" height="70" rx="0" fill="url(#waterGrad)" clip-path="url(#tankClip1)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Tank lid -->
+<rect x="178" y="62" width="124" height="14" rx="4" fill="#90a4ae" style="fill:rgb(144, 164, 174);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="200" y="56" width="20" height="12" rx="3" fill="#78909c" style="fill:rgb(120, 144, 156);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Tank label -->
+<text x="240" y="148" text-anchor="middle" class="tank-label-text">FIRST FLOOR</text>
+<text x="240" y="159" text-anchor="middle" class="tank-label-text">TANK</text>
+<!-- Tank water level indicator -->
+<line x1="182" y1="120" x2="298" y2="120" stroke="#4fc3f7" stroke-width="1" stroke-dasharray="4,2" opacity="0.7" style="fill:rgb(0, 0, 0);stroke:rgb(79, 195, 247);color:rgb(0, 0, 0);stroke-width:1px;stroke-dasharray:4px, 2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Sensors T1 -->
+<!-- Incoming sensor -->
+<rect x="296" y="74" width="16" height="8" rx="2" fill="#f57f17" style="fill:rgb(245, 127, 23);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="312" cy="78" r="3" fill="#ffcc02" style="fill:rgb(255, 204, 2);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="312" cy="78" stroke="#ffcc02" class="sensor-wave sensor-wave-1"/>
+<circle cx="312" cy="78" stroke="#ffcc02" class="sensor-wave sensor-wave-2"/>
+<line x1="308" y1="78" x2="300" y2="78" stroke="#ffcc02" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(255, 204, 2);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="312" y1="75" x2="340" y2="64" stroke="#546e7a" stroke-width="0.7" stroke-dasharray="3,2" style="fill:rgb(0, 0, 0);stroke:rgb(84, 110, 122);color:rgb(0, 0, 0);stroke-width:0.7px;stroke-dasharray:3px, 2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="343" y="63" font-family="Arial, sans-serif" font-size="9" fill="#ffd54f" style="fill:rgb(255, 213, 79);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">Water Incoming Sensor</text>
+
+<!-- Full sensor -->
+<rect x="296" y="100" width="16" height="8" rx="2" fill="#2e7d32" style="fill:rgb(46, 125, 50);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="312" cy="104" r="3" fill="#66bb6a" style="fill:rgb(102, 187, 106);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="312" cy="104" stroke="#66bb6a" class="sensor-wave sensor-wave-1"/>
+<circle cx="312" cy="104" stroke="#66bb6a" class="sensor-wave sensor-wave-2"/>
+<line x1="312" y1="101" x2="340" y2="88" stroke="#546e7a" stroke-width="0.7" stroke-dasharray="3,2" style="fill:rgb(0, 0, 0);stroke:rgb(84, 110, 122);color:rgb(0, 0, 0);stroke-width:0.7px;stroke-dasharray:3px, 2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="343" y="87" font-family="Arial, sans-serif" font-size="9" fill="#81c784" style="fill:rgb(129, 199, 132);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">Overhead Full Sensor</text>
+
+<!-- Low sensor -->
+<rect x="296" y="138" width="16" height="8" rx="2" fill="#b71c1c" style="fill:rgb(183, 28, 28);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="312" cy="142" r="3" fill="#ef5350" style="fill:rgb(239, 83, 80);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="312" cy="142" stroke="#ef5350" class="sensor-wave sensor-wave-1"/>
+<circle cx="312" cy="142" stroke="#ef5350" class="sensor-wave sensor-wave-2"/>
+<line x1="312" y1="139" x2="340" y2="126" stroke="#546e7a" stroke-width="0.7" stroke-dasharray="3,2" style="fill:rgb(0, 0, 0);stroke:rgb(84, 110, 122);color:rgb(0, 0, 0);stroke-width:0.7px;stroke-dasharray:3px, 2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="343" y="125" font-family="Arial, sans-serif" font-size="9" fill="#ef9a9a" style="fill:rgb(239, 154, 154);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">Overhead Low Sensor</text>
+
+<!-- ===== KITCHEN TANK (RIGHT ROOFTOP) ===== -->
+<!-- Tank stand -->
+<rect x="938" y="156" width="8" height="34" fill="#546e7a" style="fill:rgb(84, 110, 122);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="974" y="156" width="8" height="34" fill="#546e7a" style="fill:rgb(84, 110, 122);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="934" y="182" width="52" height="6" rx="1" fill="#455a64" style="fill:rgb(69, 90, 100);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Tank body -->
+<rect x="902" y="68" width="116" height="124" rx="8" fill="url(#tankBodyGrad)" stroke="#90a4ae" stroke-width="1.5" style="stroke:rgb(144, 164, 174);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Water inside -->
+<rect x="904" y="124" width="112" height="66" rx="0" fill="url(#waterGrad)" clip-path="url(#tankClip2)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Tank lid -->
+<rect x="898" y="62" width="124" height="14" rx="4" fill="#90a4ae" style="fill:rgb(144, 164, 174);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="920" y="56" width="20" height="12" rx="3" fill="#78909c" style="fill:rgb(120, 144, 156);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Tank label -->
+<text x="960" y="148" text-anchor="middle" class="tank-label-text">KITCHEN</text>
+<text x="960" y="159" text-anchor="middle" class="tank-label-text">TANK</text>
+<!-- Water level -->
+<line x1="902" y1="124" x2="1018" y2="124" stroke="#4fc3f7" stroke-width="1" stroke-dasharray="4,2" opacity="0.7" style="fill:rgb(0, 0, 0);stroke:rgb(79, 195, 247);color:rgb(0, 0, 0);stroke-width:1px;stroke-dasharray:4px, 2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Sensors T2 -->
+<!-- Incoming -->
+<rect x="888" y="74" width="16" height="8" rx="2" fill="#f57f17" style="fill:rgb(245, 127, 23);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="888" cy="78" r="3" fill="#ffcc02" style="fill:rgb(255, 204, 2);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="888" cy="78" stroke="#ffcc02" class="sensor-wave sensor-wave-1"/>
+<circle cx="888" cy="78" stroke="#ffcc02" class="sensor-wave sensor-wave-2"/>
+<line x1="891" y1="78" x2="900" y2="78" stroke="#ffcc02" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(255, 204, 2);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="888" y1="75" x2="860" y2="64" stroke="#546e7a" stroke-width="0.7" stroke-dasharray="3,2" style="fill:rgb(0, 0, 0);stroke:rgb(84, 110, 122);color:rgb(0, 0, 0);stroke-width:0.7px;stroke-dasharray:3px, 2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="760" y="63" font-family="Arial, sans-serif" font-size="9" fill="#ffd54f" style="fill:rgb(255, 213, 79);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">Water Incoming Sensor</text>
+
+<!-- Full -->
+<rect x="886" y="100" width="16" height="8" rx="2" fill="#2e7d32" style="fill:rgb(46, 125, 50);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="886" cy="104" r="3" fill="#66bb6a" style="fill:rgb(102, 187, 106);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="886" cy="104" stroke="#66bb6a" class="sensor-wave sensor-wave-1"/>
+<circle cx="886" cy="104" stroke="#66bb6a" class="sensor-wave sensor-wave-2"/>
+<line x1="886" y1="101" x2="858" y2="88" stroke="#546e7a" stroke-width="0.7" stroke-dasharray="3,2" style="fill:rgb(0, 0, 0);stroke:rgb(84, 110, 122);color:rgb(0, 0, 0);stroke-width:0.7px;stroke-dasharray:3px, 2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="760" y="87" font-family="Arial, sans-serif" font-size="9" fill="#81c784" style="fill:rgb(129, 199, 132);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">Overhead Full Sensor</text>
+
+<!-- Low -->
+<rect x="886" y="138" width="16" height="8" rx="2" fill="#b71c1c" style="fill:rgb(183, 28, 28);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="886" cy="142" r="3" fill="#ef5350" style="fill:rgb(239, 83, 80);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="886" cy="142" stroke="#ef5350" class="sensor-wave sensor-wave-1"/>
+<circle cx="886" cy="142" stroke="#ef5350" class="sensor-wave sensor-wave-2"/>
+<line x1="886" y1="139" x2="858" y2="126" stroke="#546e7a" stroke-width="0.7" stroke-dasharray="3,2" style="fill:rgb(0, 0, 0);stroke:rgb(84, 110, 122);color:rgb(0, 0, 0);stroke-width:0.7px;stroke-dasharray:3px, 2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="760" y="125" font-family="Arial, sans-serif" font-size="9" fill="#ef9a9a" style="fill:rgb(239, 154, 154);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">Overhead Low Sensor</text>
+
+<!-- ===== PIPE NETWORK: TANKS TO BUILDING ===== -->
+<!-- Pipe from T1 down to building -->
+<rect x="235" y="188" width="10" height="40" fill="#78909c" style="fill:rgb(120, 144, 156);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="235" y="224" width="220" height="10" rx="2" fill="#78909c" style="fill:rgb(120, 144, 156);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="450" y="200" width="10" height="34" rx="2" fill="#78909c" style="fill:rgb(120, 144, 156);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="237" y="186" width="6" height="42" fill="#90a4ae" opacity="0.4" style="fill:rgb(144, 164, 174);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Pipe from T2 down to building -->
+<rect x="955" y="188" width="10" height="40" fill="#78909c" style="fill:rgb(120, 144, 156);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="740" y="224" width="220" height="10" rx="2" fill="#78909c" style="fill:rgb(120, 144, 156);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="740" y="200" width="10" height="34" rx="2" fill="#78909c" style="fill:rgb(120, 144, 156);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="957" y="186" width="6" height="42" fill="#90a4ae" opacity="0.4" style="fill:rgb(144, 164, 174);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Water flow in pipes (animated look - arrows) -->
+<path d="M 320 230 L 370 230" stroke="#4fc3f7" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.7" style="fill:none;stroke:rgb(79, 195, 247);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<path d="M 830 230 L 780 230" stroke="#4fc3f7" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.7" style="fill:none;stroke:rgb(79, 195, 247);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- ===== CONTROL PANEL (CENTER) ===== -->
+<!-- Panel cabinet -->
+<rect x="490" y="540" width="220" height="170" rx="8" fill="url(#panelGrad)" stroke="#3949ab" stroke-width="2" style="stroke:rgb(57, 73, 171);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="494" y="544" width="212" height="162" rx="6" fill="#1a237e" opacity="0.5" style="fill:rgb(26, 35, 126);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Panel top rail -->
+<rect x="490" y="540" width="220" height="18" rx="6" fill="#283593" style="fill:rgb(40, 53, 147);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="600" y="553" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="700" fill="#e8eaf6" letter-spacing="1" style="fill:rgb(232, 234, 246);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:10px;font-weight:700;text-anchor:middle;dominant-baseline:auto">AUTO WATER CONTROLLER</text>
+<!-- HMI Screen -->
+<rect x="510" y="568" width="180" height="80" rx="4" fill="#000d1a" stroke="#1565c0" stroke-width="1.5" style="fill:rgb(0, 13, 26);stroke:rgb(21, 101, 192);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="514" y="572" width="172" height="72" rx="3" fill="#001233" style="fill:rgb(0, 18, 51);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Screen content -->
+<text x="520" y="586" font-family="Arial, sans-serif" font-size="8" fill="#29b6f6" style="fill:rgb(41, 182, 246);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:8px;font-weight:400;text-anchor:start;dominant-baseline:auto">SYSTEM STATUS: ACTIVE</text>
+<text x="520" y="598" font-family="Arial, sans-serif" font-size="7" fill="#4fc3f7" style="fill:rgb(79, 195, 247);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:7px;font-weight:400;text-anchor:start;dominant-baseline:auto">OPEN WELL PUMP: <tspan fill="#66bb6a" style="fill:rgb(102, 187, 106);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:7px;font-weight:400;text-anchor:start;dominant-baseline:auto">ON</tspan></text>
+<text x="520" y="608" font-family="Arial, sans-serif" font-size="7" fill="#4fc3f7" style="fill:rgb(79, 195, 247);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:7px;font-weight:400;text-anchor:start;dominant-baseline:auto">BORE WELL PUMP: <tspan fill="#ef5350" style="fill:rgb(239, 83, 80);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:7px;font-weight:400;text-anchor:start;dominant-baseline:auto">OFF</tspan></text>
+<text x="520" y="618" font-family="Arial, sans-serif" font-size="7" fill="#4fc3f7" style="fill:rgb(79, 195, 247);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:7px;font-weight:400;text-anchor:start;dominant-baseline:auto">FLOOR TANK: <tspan fill="#66bb6a" style="fill:rgb(102, 187, 106);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:7px;font-weight:400;text-anchor:start;dominant-baseline:auto">72%</tspan></text>
+<text x="520" y="628" font-family="Arial, sans-serif" font-size="7" fill="#4fc3f7" style="fill:rgb(79, 195, 247);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:7px;font-weight:400;text-anchor:start;dominant-baseline:auto">KITCHEN TANK: <tspan fill="#ffa726" style="fill:rgb(255, 167, 38);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:7px;font-weight:400;text-anchor:start;dominant-baseline:auto">58%</tspan></text>
+<text x="520" y="638" font-family="Arial, sans-serif" font-size="7" fill="#4fc3f7" style="fill:rgb(79, 195, 247);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:7px;font-weight:400;text-anchor:start;dominant-baseline:auto">SV1: <tspan fill="#66bb6a" style="fill:rgb(102, 187, 106);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:7px;font-weight:400;text-anchor:start;dominant-baseline:auto">OPEN</tspan>  SV2: <tspan fill="#ef5350" style="fill:rgb(239, 83, 80);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:7px;font-weight:400;text-anchor:start;dominant-baseline:auto">CLOSED</tspan></text>
+<!-- Status LEDs -->
+<circle cx="516" cy="660" r="5" fill="#66bb6a" class="led-pwr" style="fill:rgb(102, 187, 106);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="532" cy="660" r="5" fill="#66bb6a" class="led-pmp-active" style="fill:rgb(102, 187, 106);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="548" cy="660" r="5" fill="#ffa726" class="led-pmp-standby" style="fill:rgb(255, 167, 38);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="564" cy="660" r="5" fill="#ef5350" class="led-alm-pulse" style="fill:rgb(239, 83, 80);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="580" cy="660" r="5" fill="#66bb6a" class="led-net-blink" style="fill:rgb(102, 187, 106);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="516" y="672" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#90a4ae" style="fill:rgb(144, 164, 174);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:7px;font-weight:400;text-anchor:middle;dominant-baseline:auto">PWR</text>
+<text x="532" y="672" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#90a4ae" style="fill:rgb(144, 164, 174);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:7px;font-weight:400;text-anchor:middle;dominant-baseline:auto">PMP1</text>
+<text x="548" y="672" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#90a4ae" style="fill:rgb(144, 164, 174);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:7px;font-weight:400;text-anchor:middle;dominant-baseline:auto">PMP2</text>
+<text x="564" y="672" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#90a4ae" style="fill:rgb(144, 164, 174);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:7px;font-weight:400;text-anchor:middle;dominant-baseline:auto">ALM</text>
+<text x="580" y="672" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#90a4ae" style="fill:rgb(144, 164, 174);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:7px;font-weight:400;text-anchor:middle;dominant-baseline:auto">NET</text>
+<!-- Ventilation grills -->
+<rect x="600" y="656" width="96" height="48" rx="3" fill="#0d1b4a" style="fill:rgb(13, 27, 74);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="604" y1="662" x2="692" y2="662" stroke="#283593" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(40, 53, 147);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="604" y1="668" x2="692" y2="668" stroke="#283593" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(40, 53, 147);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="604" y1="674" x2="692" y2="674" stroke="#283593" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(40, 53, 147);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="604" y1="680" x2="692" y2="680" stroke="#283593" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(40, 53, 147);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="604" y1="686" x2="692" y2="686" stroke="#283593" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(40, 53, 147);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="604" y1="692" x2="692" y2="692" stroke="#283593" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(40, 53, 147);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="604" y1="698" x2="692" y2="698" stroke="#283593" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(40, 53, 147);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Cable entries at bottom -->
+<rect x="520" y="706" width="8" height="8" rx="1" fill="#263238" style="fill:rgb(38, 50, 56);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="534" y="706" width="8" height="8" rx="1" fill="#263238" style="fill:rgb(38, 50, 56);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="548" y="706" width="8" height="8" rx="1" fill="#263238" style="fill:rgb(38, 50, 56);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="562" y="706" width="8" height="8" rx="1" fill="#263238" style="fill:rgb(38, 50, 56);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="576" y="706" width="8" height="8" rx="1" fill="#263238" style="fill:rgb(38, 50, 56);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- ===== DISTRIBUTION PIPES (VERTICAL MAINS) ===== -->
+<!-- Left main from panel to pumps area -->
+<rect x="492" y="710" width="10" height="120" fill="#78909c" style="fill:rgb(120, 144, 156);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="494" y="710" width="6" height="120" fill="#90a4ae" opacity="0.3" style="fill:rgb(144, 164, 174);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.3;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Right main from panel to pumps area -->
+<rect x="698" y="710" width="10" height="120" fill="#78909c" style="fill:rgb(120, 144, 156);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="700" y="710" width="6" height="120" fill="#90a4ae" opacity="0.3" style="fill:rgb(144, 164, 174);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.3;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- ===== SOLENOID VALVES ===== -->
+<!-- SV1 (left line) -->
+<rect x="476" y="480" width="42" height="28" rx="4" fill="#1565c0" stroke="#1e88e5" stroke-width="1.5" style="fill:rgb(21, 101, 192);stroke:rgb(30, 136, 229);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="482" y="468" width="16" height="14" rx="3" fill="#283593" style="fill:rgb(40, 53, 147);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="486" y="462" width="8" height="8" rx="2" fill="#1a237e" style="fill:rgb(26, 35, 126);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="490" cy="458" r="3" fill="#42a5f5" style="fill:rgb(66, 165, 245);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="494" y="476" width="4" height="16" rx="1" fill="#1976d2" style="fill:rgb(25, 118, 210);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="497" y="520" text-anchor="middle" class="valve-label-text">SV 1</text>
+
+<!-- SV2 (right line) -->
+<rect x="682" y="480" width="42" height="28" rx="4" fill="#1565c0" stroke="#1e88e5" stroke-width="1.5" style="fill:rgb(21, 101, 192);stroke:rgb(30, 136, 229);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="688" y="468" width="16" height="14" rx="3" fill="#283593" style="fill:rgb(40, 53, 147);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="692" y="462" width="8" height="8" rx="2" fill="#1a237e" style="fill:rgb(26, 35, 126);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="696" cy="458" r="3" fill="#42a5f5" style="fill:rgb(66, 165, 245);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="700" y="476" width="4" height="16" rx="1" fill="#1976d2" style="fill:rgb(25, 118, 210);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="703" y="520" text-anchor="middle" class="valve-label-text">SV 2</text>
+
+<!-- Pipes between panel and SVs -->
+<rect x="492" y="508" width="10" height="40" fill="#78909c" style="fill:rgb(120, 144, 156);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="518" y="508" width="10" height="40" fill="#78909c" style="fill:rgb(120, 144, 156);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Pipes from SVs upward to tanks -->
+<!-- Left SV to First Floor Tank pipe -->
+<rect x="492" y="230" width="10" height="282" fill="#78909c" style="fill:rgb(120, 144, 156);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="494" y="230" width="6" height="282" fill="#90a4ae" opacity="0.3" style="fill:rgb(144, 164, 174);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.3;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Right SV to Kitchen Tank pipe -->
+<rect x="698" y="230" width="10" height="282" fill="#78909c" style="fill:rgb(120, 144, 156);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="700" y="230" width="6" height="282" fill="#90a4ae" opacity="0.3" style="fill:rgb(144, 164, 174);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.3;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Water flow arrows in vertical mains -->
+<path d="M 497 420 L 497 380" stroke="#4fc3f7" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.8" style="fill:none;stroke:rgb(79, 195, 247);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<path d="M 703 420 L 703 380" stroke="#4fc3f7" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.8" style="fill:none;stroke:rgb(79, 195, 247);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- ===== NORMAL VALVES (NV) ===== -->
+<!-- NV1 -->
+<g transform="translate(460, 440)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+  <polygon points="0,0 24,10 0,20" fill="#37474f" stroke="#546e7a" stroke-width="1" style="fill:rgb(55, 71, 79);stroke:rgb(84, 110, 122);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <polygon points="24,0 0,10 24,20" fill="#546e7a" stroke="#37474f" stroke-width="1" style="fill:rgb(84, 110, 122);stroke:rgb(55, 71, 79);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="-4" y="8" width="6" height="4" rx="1" fill="#90a4ae" style="fill:rgb(144, 164, 174);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="22" y="8" width="6" height="4" rx="1" fill="#90a4ae" style="fill:rgb(144, 164, 174);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+</g>
+<text x="472" y="476" text-anchor="middle" class="nv-label-text">NV</text>
+
+<!-- NV2 -->
+<g transform="translate(716, 440)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+  <polygon points="0,0 24,10 0,20" fill="#37474f" stroke="#546e7a" stroke-width="1" style="fill:rgb(55, 71, 79);stroke:rgb(84, 110, 122);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <polygon points="24,0 0,10 24,20" fill="#546e7a" stroke="#37474f" stroke-width="1" style="fill:rgb(84, 110, 122);stroke:rgb(55, 71, 79);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="-4" y="8" width="6" height="4" rx="1" fill="#90a4ae" style="fill:rgb(144, 164, 174);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="22" y="8" width="6" height="4" rx="1" fill="#90a4ae" style="fill:rgb(144, 164, 174);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+</g>
+<text x="728" y="476" text-anchor="middle" class="nv-label-text">NV</text>
+
+<!-- ===== HORIZONTAL DISTRIBUTION PIPES (MIDZONE) ===== -->
+<!-- Left distribution to NRVs -->
+<rect x="200" y="760" width="302" height="10" rx="2" fill="#78909c" style="fill:rgb(120, 144, 156);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="200" y="762" width="302" height="6" fill="#90a4ae" opacity="0.3" style="fill:rgb(144, 164, 174);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.3;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Right distribution -->
+<rect x="698" y="760" width="302" height="10" rx="2" fill="#78909c" style="fill:rgb(120, 144, 156);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="698" y="762" width="302" height="6" fill="#90a4ae" opacity="0.3" style="fill:rgb(144, 164, 174);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.3;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Vertical pipe from left dist to open well pump -->
+<rect x="196" y="710" width="10" height="60" fill="#78909c" style="fill:rgb(120, 144, 156);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Vertical pipe from right dist to bore pump -->
+<rect x="994" y="710" width="10" height="60" fill="#78909c" style="fill:rgb(120, 144, 156);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- ===== NRVs ===== -->
+<!-- NRV1 (Open Well side) -->
+<g transform="translate(188, 745)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+  <rect x="0" y="0" width="28" height="20" rx="3" fill="#455a64" stroke="#546e7a" stroke-width="1.5" style="fill:rgb(69, 90, 100);stroke:rgb(84, 110, 122);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M 4 5 L 14 10 L 4 15 Z" fill="#29b6f6" style="fill:rgb(41, 182, 246);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M 14 5 L 24 10 L 14 15" fill="none" stroke="#90a4ae" stroke-width="1.5" style="fill:none;stroke:rgb(144, 164, 174);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="14" cy="10" r="3" fill="#0277bd" style="fill:rgb(2, 119, 189);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+</g>
+<text x="202" y="778" text-anchor="middle" class="valve-label-text">NRV</text>
+
+<!-- NRV2 (Bore Well side) -->
+<g transform="translate(984, 745)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+  <rect x="0" y="0" width="28" height="20" rx="3" fill="#455a64" stroke="#546e7a" stroke-width="1.5" style="fill:rgb(69, 90, 100);stroke:rgb(84, 110, 122);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M 4 5 L 14 10 L 4 15 Z" fill="#29b6f6" style="fill:rgb(41, 182, 246);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M 14 5 L 24 10 L 14 15" fill="none" stroke="#90a4ae" stroke-width="1.5" style="fill:none;stroke:rgb(144, 164, 174);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="14" cy="10" r="3" fill="#0277bd" style="fill:rgb(2, 119, 189);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+</g>
+<text x="998" y="778" text-anchor="middle" class="valve-label-text">NRV</text>
+
+<!-- ===== OPEN WELL (BOTTOM LEFT) ===== -->
+<!-- Well wall outer -->
+<ellipse cx="130" cy="682" rx="62" ry="22" fill="#3e2723" stroke="#5d4037" stroke-width="3" style="fill:rgb(62, 39, 35);stroke:rgb(93, 64, 55);color:rgb(0, 0, 0);stroke-width:3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<ellipse cx="130" cy="682" rx="52" ry="16" fill="#1a0e08" style="fill:rgb(26, 14, 8);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Well water -->
+<ellipse cx="130" cy="682" rx="52" ry="16" fill="url(#wellWater)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Wave effect -->
+<path d="M 82 679 Q 100 676 118 679 Q 136 682 154 679 Q 172 676 182 679" fill="none" stroke="#4fc3f7" stroke-width="1" opacity="0.6" style="fill:none;stroke:rgb(79, 195, 247);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Well body (front) -->
+<rect x="78" y="632" width="104" height="52" fill="#4e342e" stroke="#5d4037" stroke-width="2" style="fill:rgb(78, 52, 46);stroke:rgb(93, 64, 55);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="80" y="634" width="100" height="50" fill="#3e2723" style="fill:rgb(62, 39, 35);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Stone texture on well -->
+<line x1="80" y1="650" x2="180" y2="650" stroke="#5d4037" stroke-width="1" opacity="0.5" style="fill:rgb(0, 0, 0);stroke:rgb(93, 64, 55);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="80" y1="662" x2="180" y2="662" stroke="#5d4037" stroke-width="1" opacity="0.5" style="fill:rgb(0, 0, 0);stroke:rgb(93, 64, 55);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="80" y1="674" x2="180" y2="674" stroke="#5d4037" stroke-width="1" opacity="0.5" style="fill:rgb(0, 0, 0);stroke:rgb(93, 64, 55);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="110" y1="634" x2="110" y2="682" stroke="#5d4037" stroke-width="1" opacity="0.4" style="fill:rgb(0, 0, 0);stroke:rgb(93, 64, 55);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="130" y1="634" x2="130" y2="682" stroke="#5d4037" stroke-width="1" opacity="0.4" style="fill:rgb(0, 0, 0);stroke:rgb(93, 64, 55);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="150" y1="634" x2="150" y2="682" stroke="#5d4037" stroke-width="1" opacity="0.4" style="fill:rgb(0, 0, 0);stroke:rgb(93, 64, 55);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Well top rim -->
+<ellipse cx="130" cy="632" rx="54" ry="12" fill="#5d4037" stroke="#6d4c41" stroke-width="2" style="fill:rgb(93, 64, 55);stroke:rgb(109, 76, 65);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Label -->
+<text x="130" y="720" text-anchor="middle" class="well-label-text">OPEN WELL</text>
+
+<!-- ===== OPEN WELL PUMP ===== -->
+<!-- Motor body -->
+<rect x="68" y="758" width="56" height="42" rx="5" fill="url(#pumpGrad)" stroke="#546e7a" stroke-width="1.5" style="stroke:rgb(84, 110, 122);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Motor fins -->
+<line x1="72" y1="762" x2="72" y2="796" stroke="#546e7a" stroke-width="1.5" style="fill:rgb(0, 0, 0);stroke:rgb(84, 110, 122);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="80" y1="762" x2="80" y2="796" stroke="#546e7a" stroke-width="1.5" style="fill:rgb(0, 0, 0);stroke:rgb(84, 110, 122);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="88" y1="762" x2="88" y2="796" stroke="#546e7a" stroke-width="1.5" style="fill:rgb(0, 0, 0);stroke:rgb(84, 110, 122);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="96" y1="762" x2="96" y2="796" stroke="#546e7a" stroke-width="1.5" style="fill:rgb(0, 0, 0);stroke:rgb(84, 110, 122);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="104" y1="762" x2="104" y2="796" stroke="#546e7a" stroke-width="1.5" style="fill:rgb(0, 0, 0);stroke:rgb(84, 110, 122);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="112" y1="762" x2="112" y2="796" stroke="#546e7a" stroke-width="1.5" style="fill:rgb(0, 0, 0);stroke:rgb(84, 110, 122);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Pump head -->
+<rect x="118" y="762" width="34" height="42" rx="4" fill="#37474f" stroke="#455a64" stroke-width="1" style="fill:rgb(55, 71, 79);stroke:rgb(69, 90, 100);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="135" cy="783" r="12" fill="#263238" stroke="#455a64" stroke-width="1.5" style="fill:rgb(38, 50, 56);stroke:rgb(69, 90, 100);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="135" cy="783" r="6" fill="#37474f" style="fill:rgb(55, 71, 79);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="135" cy="783" r="3" fill="#546e7a" style="fill:rgb(84, 110, 122);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Pump base -->
+<rect x="66" y="798" width="90" height="8" rx="2" fill="#263238" style="fill:rgb(38, 50, 56);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="74" y="806" width="74" height="4" rx="1" fill="#1c1c1c" style="fill:rgb(28, 28, 28);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Label -->
+<text x="111" y="824" text-anchor="middle" class="pump-label-text">OPEN WELL PUMP</text>
+<!-- Motor text -->
+<text x="82" y="785" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#90a4ae" style="fill:rgb(144, 164, 174);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:7px;font-weight:400;text-anchor:middle;dominant-baseline:auto">MOTOR</text>
+<!-- Pipe from pump to distribution -->
+<rect x="196" y="758" width="10" height="10" fill="#78909c" style="fill:rgb(120, 144, 156);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- ===== BORE WELL (BOTTOM RIGHT) ===== -->
+<!-- Ground surface around borewell -->
+<ellipse cx="1070" cy="640" rx="50" ry="14" fill="#2d1f10" style="fill:rgb(45, 31, 16);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Bore casing (concrete ring) -->
+<rect x="1048" y="620" width="44" height="60" rx="4" fill="#5d4037" stroke="#795548" stroke-width="2" style="fill:rgb(93, 64, 55);stroke:rgb(121, 85, 72);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="1052" y="624" width="36" height="56" rx="3" fill="#4e342e" style="fill:rgb(78, 52, 46);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Underground bore indication -->
+<rect x="1054" y="680" width="32" height="100" rx="3" fill="#37474f" stroke="#455a64" stroke-width="1.5" style="fill:rgb(55, 71, 79);stroke:rgb(69, 90, 100);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Submersible pump icon inside bore -->
+<rect x="1058" y="740" width="24" height="30" rx="3" fill="#263238" stroke="#37474f" stroke-width="1" style="fill:rgb(38, 50, 56);stroke:rgb(55, 71, 79);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="1070" cy="755" r="8" fill="#37474f" style="fill:rgb(55, 71, 79);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="1070" cy="755" r="4" fill="#455a64" style="fill:rgb(69, 90, 100);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Protective cap -->
+<rect x="1044" y="610" width="52" height="14" rx="5" fill="#78909c" stroke="#90a4ae" stroke-width="1.5" style="fill:rgb(120, 144, 156);stroke:rgb(144, 164, 174);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Water table indication -->
+<line x1="1050" y1="715" x2="1090" y2="715" stroke="#4fc3f7" stroke-width="1" stroke-dasharray="3,2" opacity="0.5" style="fill:rgb(0, 0, 0);stroke:rgb(79, 195, 247);color:rgb(0, 0, 0);stroke-width:1px;stroke-dasharray:3px, 2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="1095" y="718" font-family="Arial, sans-serif" font-size="7" fill="#4fc3f7" opacity="0.7" style="fill:rgb(79, 195, 247);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:Arial, sans-serif;font-size:7px;font-weight:400;text-anchor:start;dominant-baseline:auto">Water table</text>
+<!-- Label -->
+<text x="1070" y="724" text-anchor="middle" class="well-label-text">BORE WELL</text>
+
+<!-- ===== BORE WELL PUMP ===== -->
+<!-- Pump body -->
+<rect x="1010" y="758" width="56" height="42" rx="5" fill="url(#pumpGrad)" stroke="#546e7a" stroke-width="1.5" style="stroke:rgb(84, 110, 122);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Fins -->
+<line x1="1014" y1="762" x2="1014" y2="796" stroke="#546e7a" stroke-width="1.5" style="fill:rgb(0, 0, 0);stroke:rgb(84, 110, 122);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="1022" y1="762" x2="1022" y2="796" stroke="#546e7a" stroke-width="1.5" style="fill:rgb(0, 0, 0);stroke:rgb(84, 110, 122);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="1030" y1="762" x2="1030" y2="796" stroke="#546e7a" stroke-width="1.5" style="fill:rgb(0, 0, 0);stroke:rgb(84, 110, 122);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="1038" y1="762" x2="1038" y2="796" stroke="#546e7a" stroke-width="1.5" style="fill:rgb(0, 0, 0);stroke:rgb(84, 110, 122);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="1046" y1="762" x2="1046" y2="796" stroke="#546e7a" stroke-width="1.5" style="fill:rgb(0, 0, 0);stroke:rgb(84, 110, 122);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="1054" y1="762" x2="1054" y2="796" stroke="#546e7a" stroke-width="1.5" style="fill:rgb(0, 0, 0);stroke:rgb(84, 110, 122);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Pump head -->
+<rect x="1058" y="762" width="34" height="42" rx="4" fill="#37474f" stroke="#455a64" stroke-width="1" style="fill:rgb(55, 71, 79);stroke:rgb(69, 90, 100);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="1075" cy="783" r="12" fill="#263238" stroke="#455a64" stroke-width="1.5" style="fill:rgb(38, 50, 56);stroke:rgb(69, 90, 100);color:rgb(0, 0, 0);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="1075" cy="783" r="6" fill="#37474f" style="fill:rgb(55, 71, 79);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="1075" cy="783" r="3" fill="#546e7a" style="fill:rgb(84, 110, 122);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Base -->
+<rect x="1008" y="798" width="90" height="8" rx="2" fill="#263238" style="fill:rgb(38, 50, 56);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="1016" y="806" width="74" height="4" rx="1" fill="#1c1c1c" style="fill:rgb(28, 28, 28);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Label -->
+<text x="1070" y="824" text-anchor="middle" class="pump-label-text">BORE WELL PUMP</text>
+<text x="1026" y="785" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#90a4ae" style="fill:rgb(144, 164, 174);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:7px;font-weight:400;text-anchor:middle;dominant-baseline:auto">MOTOR</text>
+
+<!-- Connection pipes from pumps to distribution -->
+<rect x="152" y="758" width="46" height="10" fill="#78909c" style="fill:rgb(120, 144, 156);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="994" y="758" width="18" height="10" fill="#78909c" style="fill:rgb(120, 144, 156);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Water flow arrows -->
+<path d="M 155 763 L 180 763" stroke="#4fc3f7" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.8" style="fill:none;stroke:rgb(79, 195, 247);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<path d="M 1000 763 L 988 763" stroke="#4fc3f7" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.8" style="fill:none;stroke:rgb(79, 195, 247);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Vertical pipes from distribution to panel -->
+<rect x="492" y="765" width="10" height="50" fill="#78909c" style="fill:rgb(120, 144, 156);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="698" y="765" width="10" height="50" fill="#78909c" style="fill:rgb(120, 144, 156);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Flow arrows upward -->
+<path d="M 497 750 L 497 720" stroke="#4fc3f7" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.8" style="fill:none;stroke:rgb(79, 195, 247);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<path d="M 703 750 L 703 720" stroke="#4fc3f7" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.8" style="fill:none;stroke:rgb(79, 195, 247);color:rgb(0, 0, 0);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- ===== CONTROL WIRES (dashed blue to sensors) ===== -->
+<!-- Panel to First Floor Tank sensors -->
+<path d="M 490 560 Q 380 540 300 140" stroke="#42a5f5" stroke-width="1" stroke-dasharray="5,3" fill="none" opacity="0.4" style="fill:none;stroke:rgb(66, 165, 245);color:rgb(0, 0, 0);stroke-width:1px;stroke-dasharray:5px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Panel to Kitchen Tank sensors -->
+<path d="M 710 560 Q 820 540 900 140" stroke="#42a5f5" stroke-width="1" stroke-dasharray="5,3" fill="none" opacity="0.4" style="fill:none;stroke:rgb(66, 165, 245);color:rgb(0, 0, 0);stroke-width:1px;stroke-dasharray:5px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- ===== INFORMATION LEGEND PANELS ===== -->
+<!-- Legend box bottom left -->
+<rect x="8" y="380" width="155" height="150" rx="6" fill="#0d1b2a" stroke="#1565c0" stroke-width="1" opacity="0.9"/>
+<text x="85" y="396" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="700" fill="#29b6f6">SYSTEM COMPONENTS</text>
+<line x1="14" y1="400" x2="157" y2="400" stroke="#1565c0" stroke-width="0.5"/>
+<!-- NRV legend item -->
+<rect x="18" y="408" width="20" height="12" rx="2" fill="#455a64" stroke="#546e7a" stroke-width="1"/>
+<path d="M 20 414 L 28 414" stroke="#29b6f6" stroke-width="1.5"/><path d="M 25 411 L 28 414 L 25 417" fill="none" stroke="#29b6f6" stroke-width="1.5"/>
+<text x="46" y="417" class="legend-text">Non Return Valve (NRV)</text>
+<!-- SV legend -->
+<rect x="18" y="426" width="20" height="12" rx="3" fill="#1565c0" stroke="#1e88e5" stroke-width="1"/>
+<text x="46" y="435" class="legend-text">Solenoid Valve (SV)</text>
+<!-- NV legend -->
+<g transform="translate(18, 444)">
+  <polygon points="0,0 10,6 0,12" fill="#37474f" stroke="#546e7a" stroke-width="0.75"/>
+  <polygon points="20,0 10,6 20,12" fill="#546e7a" stroke="#37474f" stroke-width="0.75"/>
+</g>
+<text x="46" y="453" class="legend-text">Normal Valve (NV)</text>
+<!-- Level Sensor legend -->
+<rect x="20" y="464" width="16" height="8" rx="2" fill="#2e7d32"/>
+<circle cx="28" cy="468" r="2.5" fill="#66bb6a"/>
+<text x="46" y="471" class="legend-text">Level Sensor</text>
+<!-- Signal Cable legend -->
+<line x1="18" y1="488" x2="38" y2="488" stroke="#42a5f5" stroke-width="1" stroke-dasharray="3,2"/>
+<text x="46" y="491" class="legend-text">Signal Cable</text>
+<!-- Water Flow Line legend -->
+<line x1="18" y1="506" x2="38" y2="506" stroke="#00e5ff" stroke-width="2.2" stroke-dasharray="4,4"/>
+<text x="46" y="509" class="legend-text">Water Flow Line</text>
+
+<!-- Flow lines overlay -->
+<g id="flow-lines" opacity="0.85">
+  <!-- Left Side flow from open well pump up to Tank A -->
+  <line x1="201" y1="765" x2="201" y2="710" class="flow-line" />
+  <line x1="201" y1="765" x2="497" y2="765" class="flow-line" />
+  <line x1="497" y1="765" x2="497" y2="512" class="flow-line" />
+  <line x1="497" y1="480" x2="497" y2="230" class="flow-line" />
+
+  <!-- Right Side flow from bore well pump up to Tank B -->
+  <line x1="999" y1="765" x2="999" y2="710" class="flow-line" />
+  <line x1="999" y1="765" x2="703" y2="765" class="flow-line-reverse" />
+  <line x1="703" y1="765" x2="703" y2="512" class="flow-line" />
+  <line x1="703" y1="480" x2="703" y2="230" class="flow-line" />
+</g>
+</svg>

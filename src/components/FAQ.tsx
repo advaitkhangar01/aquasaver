@@ -31,7 +31,7 @@ const FAQS = [
   },
   {
     question: "Do you handle large commercial or industrial projects?",
-    answer: "Yes. We have designed and implemented complete water automation systems for large-scale projects including the Mankapur Indoor Stadium. Contact us with your requirements for a custom solution.",
+    answer: "Yes. We have designed and implemented complete water automation systems for large-scale projects like commercial buildings, residential apartments, and agricultural lands. Contact us with your requirements for a custom solution.",
   },
   {
     question: "How do I install the controller?",

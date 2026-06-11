@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { LinkedinLogo, Drop, Cpu, ShieldCheck, Buildings, Quotes } from "@phosphor-icons/react/dist/ssr";
+import { LinkedinLogo, Cpu, ShieldCheck, Buildings, Quotes } from "@phosphor-icons/react/dist/ssr";
 import { motion, Variants } from "framer-motion";
 
 export default function About() {
@@ -139,22 +139,6 @@ export default function About() {
                 />
               </motion.div>
 
-              {/* Floating Credential Tag */}
-              <motion.div
-                variants={imageCardVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
-                className="absolute bottom-20 right-4 z-30 bg-bg-dark text-white rounded-2xl p-4 shadow-xl border border-white/10 flex items-center gap-3 backdrop-blur-md bg-opacity-90 max-w-[200px]"
-              >
-                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary flex-shrink-0">
-                  <Drop size={20} weight="fill" />
-                </div>
-                <div>
-                  <p className="text-[10px] text-text-light font-bold uppercase tracking-wider">Nagpur Partner</p>
-                  <p className="text-xs font-bold font-display leading-tight">Mankapur Indoor Stadium Setup</p>
-                </div>
-              </motion.div>
             </div>
           </div>
 
@@ -219,7 +203,7 @@ export default function About() {
                 </div>
                 <h4 className="font-display font-bold text-text-dark text-base">Proven at Scale</h4>
                 <p className="text-xs text-text-mid mt-2 leading-relaxed">
-                  Trusted by homeowners, high-rises, farms & the Nagpur Mankapur Stadium.
+                  Trusted by homeowners, housing societies, farms & commercial complexes.
                 </p>
               </div>
             </motion.div>

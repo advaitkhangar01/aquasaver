@@ -19,7 +19,7 @@ export const INSTAGRAM_URL =
 export const WA_GENERAL   = `https://wa.me/${WHATSAPP}?text=Hi%20Aqua%20Saver!%20I%20need%20help%20with%20my%20water%20system.`;
 export const WA_QUOTE     = `https://wa.me/${WHATSAPP}?text=Hi%20Aqua%20Saver!%20I%20need%20a%20free%20quote.`;
 export const WA_RECOMMEND = `https://wa.me/${WHATSAPP}?text=Hi%20Aqua%20Saver!%20I%20need%20help%20choosing%20the%20right%20product.`;
-export const WA_PROJECT   = `https://wa.me/${WHATSAPP}?text=Hi%20Aqua%20Saver!%20I%20have%20a%20project%20similar%20to%20the%20Mankapur%20Stadium%20and%20need%20a%20solution.`;
+export const WA_PROJECT   = `https://wa.me/${WHATSAPP}?text=Hi%20Aqua%20Saver!%20I%20have%20a%20large-scale%20project%20and%20need%20a%20custom%20solution.`;
 export const WA_INQUIRY   = `https://wa.me/${WHATSAPP}?text=Hi%20Aqua%20Saver!%20I%20have%20an%20inquiry.`;
 
 export const waProduct = (name: string) =>

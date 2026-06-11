@@ -117,7 +117,7 @@ export default function Founder() {
                 Nagpur is our home, and our systems are designed and engineered specifically to handle local Indian conditions — including extreme voltage fluctuations, irregular municipal water schedules, and deep borewell setups.
               </p>
               <p>
-                Whether it is automating a simple residential overhead tank or engineering a complex, multi-pump automated system like the one we built for the Nagpur Mankapur Indoor Stadium, our focus is always on bulletproof reliability and customer satisfaction.
+                Whether it is automating a simple residential overhead tank or engineering a complex, multi-pump automated system for a commercial project, our focus is always on bulletproof reliability and customer satisfaction.
               </p>
             </motion.div>
 

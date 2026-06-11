@@ -4,21 +4,22 @@ import { InstagramLogo, MapPin, Phone, EnvelopeSimple } from "@phosphor-icons/re
 import { PHONE, PHONE_DISP, WHATSAPP, EMAIL, ADDRESS_L1, ADDRESS_L2, INSTAGRAM_URL } from "@/lib/constants";
 
 const QUICK_LINKS = [
-  { name: "Products", href: "#products" },
-  { name: "About", href: "#about" },
-  { name: "Why Choose Us", href: "#why-us" },
-  { name: "Projects", href: "#projects" },
-  { name: "FAQ", href: "#faq" },
-  { name: "Contact", href: "#contact" },
+  { name: "Products", href: "/#products" },
+  { name: "Custom Solutions", href: "/custom-solutions" },
+  { name: "About", href: "/#about" },
+  { name: "Why Choose Us", href: "/#why-us" },
+  { name: "Projects", href: "/#projects" },
+  { name: "FAQ", href: "/#faq" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 const PRODUCT_LINKS = [
-  { name: "Single Phase Controller", href: "#products" },
-  { name: "Three Phase Controller", href: "#products" },
-  { name: "Digital Controller", href: "#products" },
-  { name: "Motor Starter", href: "#products" },
-  { name: "Liquid Level Controller", href: "#products" },
-  { name: "Timer Switch", href: "#products" },
+  { name: "Single Phase Controller", href: "/#products" },
+  { name: "Three Phase Controller", href: "/#products" },
+  { name: "Digital Controller", href: "/#products" },
+  { name: "Motor Starter", href: "/#products" },
+  { name: "Liquid Level Controller", href: "/#products" },
+  { name: "Timer Switch", href: "/#products" },
 ];
 
 export default function Footer() {

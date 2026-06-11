@@ -4,18 +4,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { List, X, Phone, WhatsappLogo, CaretRight, XCircle } from "@phosphor-icons/react";
 import { useState, useEffect, useCallback } from "react";
+import { usePathname } from "next/navigation";
 import { PHONE, WA_QUOTE } from "@/lib/constants";
 
 const NAV_LINKS = [
-  { name: "Products", href: "#products", id: "products" },
-  { name: "About", href: "#about", id: "about" },
-  { name: "Why Us", href: "#why-us", id: "why-us" },
-  { name: "Projects", href: "#projects", id: "projects" },
-  { name: "FAQ", href: "#faq", id: "faq" },
-  { name: "Contact", href: "#contact", id: "contact" },
+  { name: "Products", href: "/#products", id: "products" },
+  { name: "Custom Solutions", href: "/custom-solutions", id: "custom-solutions" },
+  { name: "About", href: "/#about", id: "about" },
+  { name: "Why Us", href: "/#why-us", id: "why-us" },
+  { name: "Projects", href: "/#projects", id: "projects" },
+  { name: "FAQ", href: "/#faq", id: "faq" },
+  { name: "Contact", href: "/#contact", id: "contact" },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("");
@@ -45,6 +48,10 @@ export default function Navbar() {
 
   // Scroll-spy: update active link based on which section is in view
   const updateActiveLink = useCallback(() => {
+    if (pathname === "/custom-solutions") {
+      setActiveLink("Custom Solutions");
+      return;
+    }
     const scrollY = window.scrollY + 100;
     let current = "";
     for (const link of NAV_LINKS) {
@@ -54,7 +61,7 @@ export default function Navbar() {
       }
     }
     setActiveLink(current);
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     window.addEventListener("scroll", updateActiveLink, { passive: true });
@@ -110,7 +117,7 @@ export default function Navbar() {
             <div className="flex justify-between items-center h-[72px]">
 
               {/* Logo */}
-              <Link href="#" className="flex items-center gap-2.5 flex-shrink-0 group">
+              <Link href="/" className="flex items-center gap-2.5 flex-shrink-0 group">
                 <div className="relative flex items-center">
                   <div className="relative overflow-hidden rounded-xl bg-gradient-to-tr from-white to-neutral-50 p-1.5 border border-primary/10 shadow-[0_2px_10px_rgba(91,184,232,0.08)] group-hover:border-primary/30 transition-all duration-300 group-hover:shadow-[0_4px_16px_rgba(91,184,232,0.15)]">
                     <Image

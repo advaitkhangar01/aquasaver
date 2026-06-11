@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react";
 const STATS = [
   { value: 500, suffix: "+", label: "Happy Customers" },
   { value: 6, suffix: "+", label: "Product Categories" },
-  { value: 1, suffix: "", label: "Stadium Automated" },
   { value: 100, suffix: "%", label: "Made in India" },
   { value: 24, suffix: "/7", label: "Customer Support" },
 ];
@@ -64,9 +63,9 @@ export default function TrustBar() {
   return (
     <section className="bg-primary py-10" ref={barRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-0 divide-x-0 md:divide-x divide-white/20">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 divide-x-0 md:divide-x divide-white/20">
           {STATS.map((stat, index) => (
-            <div key={index} className="flex flex-col items-center justify-center text-center px-4 col-span-1 last:col-span-2 last:md:col-span-1">
+            <div key={index} className="flex flex-col items-center justify-center text-center px-4 col-span-1">
               <div className="text-4xl font-display font-extrabold text-white mb-2 tracking-tight">
                 {hasAnimated ? counts[index] : 0}
                 {stat.suffix}
