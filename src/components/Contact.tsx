@@ -264,6 +264,193 @@ export default function Contact() {
                   </div>
                 </div>
 
+                {/* System Design & Customisation Section */}
+                <div className="border-t border-white/5 pt-6 space-y-6">
+                  <h4 className="text-sm font-display font-semibold text-primary uppercase tracking-wider">
+                    System Setup & Customisation
+                  </h4>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="customisation" className="block text-xs font-semibold text-text-light uppercase tracking-wider mb-2">
+                        Customisation Required?
+                      </label>
+                      <div className="relative">
+                        <select
+                          id="customisation"
+                          name="customisation"
+                          className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 backdrop-blur-sm appearance-none cursor-pointer"
+                        >
+                          <option value="" className="bg-bg-darker text-white">Select Option</option>
+                          <option value="Yes" className="bg-bg-darker text-white">Yes</option>
+                          <option value="No" className="bg-bg-darker text-white">No</option>
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-text-light">
+                          <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label htmlFor="tankCount" className="block text-xs font-semibold text-text-light uppercase tracking-wider mb-2">
+                        How many tanks do you have?
+                      </label>
+                      <div className="relative">
+                        <select
+                          id="tankCount"
+                          name="tankCount"
+                          className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 backdrop-blur-sm appearance-none cursor-pointer"
+                        >
+                          <option value="" className="bg-bg-darker text-white">Select Count</option>
+                          <option value="1" className="bg-bg-darker text-white">1 Tank</option>
+                          <option value="2" className="bg-bg-darker text-white">2 Tanks</option>
+                          <option value="3" className="bg-bg-darker text-white">3 Tanks</option>
+                          <option value="4" className="bg-bg-darker text-white">4 Tanks</option>
+                          <option value="5+" className="bg-bg-darker text-white">5+ Tanks</option>
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-text-light">
+                          <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="motorCount" className="block text-xs font-semibold text-text-light uppercase tracking-wider mb-2">
+                        How many motors do you have?
+                      </label>
+                      <div className="relative">
+                        <select
+                          id="motorCount"
+                          name="motorCount"
+                          className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 backdrop-blur-sm appearance-none cursor-pointer"
+                        >
+                          <option value="" className="bg-bg-darker text-white">Select Count</option>
+                          <option value="1" className="bg-bg-darker text-white">1 Motor</option>
+                          <option value="2" className="bg-bg-darker text-white">2 Motors</option>
+                          <option value="3" className="bg-bg-darker text-white">3 Motors</option>
+                          <option value="4+" className="bg-bg-darker text-white">4+ Motors</option>
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-text-light">
+                          <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label htmlFor="waterResourceCount" className="block text-xs font-semibold text-text-light uppercase tracking-wider mb-2">
+                        Water sources to fill upper tank?
+                      </label>
+                      <div className="relative">
+                        <select
+                          id="waterResourceCount"
+                          name="waterResourceCount"
+                          className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 backdrop-blur-sm appearance-none cursor-pointer"
+                        >
+                          <option value="" className="bg-bg-darker text-white">Select Count</option>
+                          <option value="1" className="bg-bg-darker text-white">1 Source</option>
+                          <option value="2" className="bg-bg-darker text-white">2 Sources</option>
+                          <option value="3" className="bg-bg-darker text-white">3 Sources</option>
+                          <option value="4+" className="bg-bg-darker text-white">4+ Sources</option>
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-text-light">
+                          <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div>
+                      <label htmlFor="plumbingDesign" className="block text-xs font-semibold text-text-light uppercase tracking-wider mb-2">
+                        Required plumbing design?
+                      </label>
+                      <div className="relative">
+                        <select
+                          id="plumbingDesign"
+                          name="plumbingDesign"
+                          className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 backdrop-blur-sm appearance-none cursor-pointer"
+                        >
+                          <option value="" className="bg-bg-darker text-white">Select Option</option>
+                          <option value="Yes" className="bg-bg-darker text-white">Yes</option>
+                          <option value="No" className="bg-bg-darker text-white">No</option>
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-text-light">
+                          <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label htmlFor="siteVisit" className="block text-xs font-semibold text-text-light uppercase tracking-wider mb-2">
+                        Site visit required?
+                      </label>
+                      <div className="relative">
+                        <select
+                          id="siteVisit"
+                          name="siteVisit"
+                          className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 backdrop-blur-sm appearance-none cursor-pointer"
+                        >
+                          <option value="" className="bg-bg-darker text-white">Select Option</option>
+                          <option value="Yes" className="bg-bg-darker text-white">Yes</option>
+                          <option value="No" className="bg-bg-darker text-white">No</option>
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-text-light">
+                          <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label htmlFor="prePlanPlumbingHelp" className="block text-xs font-semibold text-text-light uppercase tracking-wider mb-2">
+                        Help for pre-plan plumbing?
+                      </label>
+                      <div className="relative">
+                        <select
+                          id="prePlanPlumbingHelp"
+                          name="prePlanPlumbingHelp"
+                          className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 backdrop-blur-sm appearance-none cursor-pointer"
+                        >
+                          <option value="" className="bg-bg-darker text-white">Select Option</option>
+                          <option value="Yes" className="bg-bg-darker text-white">Yes</option>
+                          <option value="No" className="bg-bg-darker text-white">No</option>
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-text-light">
+                          <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3 bg-white/[0.02] border border-white/10 rounded-xl p-4">
+                    <input
+                      id="devPeriodAck"
+                      name="developmentPeriodAcknowledge"
+                      type="checkbox"
+                      required
+                      className="w-4 h-4 mt-0.5 rounded border-white/10 text-primary focus:ring-primary/20 bg-white/[0.02] cursor-pointer"
+                    />
+                    <label htmlFor="devPeriodAck" className="text-xs text-text-light select-none cursor-pointer">
+                      I acknowledge that the minimum development period for custom solutions is <span className="text-white font-semibold">30 to 40 days</span>. <span className="text-danger">*</span>
+                    </label>
+                  </div>
+                </div>
+
                 <div>
                   <label htmlFor="message" className="block text-xs font-semibold text-text-light uppercase tracking-wider mb-2">
                     Requirement / Message <span className="text-danger">*</span>

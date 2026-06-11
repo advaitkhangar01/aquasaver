@@ -168,6 +168,14 @@ export default function CustomSolutionsClient() {
     pumpCount: "1 Pump",
     sources: [] as string[],
     hasOverhead: "Yes",
+    customisation: "Yes",
+    tankCount: "1",
+    motorCount: "1",
+    waterResourceCount: "1",
+    plumbingDesign: "Yes",
+    siteVisit: "Yes",
+    prePlanPlumbingHelp: "Yes",
+    acknowledgedPeriod: false,
     description: "",
   });
 
@@ -193,9 +201,13 @@ export default function CustomSolutionsClient() {
 📞 *Phone*: ${formData.phone || "Not provided"}
 📍 *Location*: ${formData.location || "Not provided"}
 🏢 *Facility Type*: ${formData.facilityType}
-🔌 *Number of Pumps*: ${formData.pumpCount}
-🚰 *Water Sources*: ${formData.sources.join(", ") || "None selected"}
-🪣 *Overhead Tanks*: ${formData.hasOverhead}
+⚙️ *Customisation*: ${formData.customisation}
+🪣 *Number of Tanks*: ${formData.tankCount}
+🔌 *Number of Motors*: ${formData.motorCount}
+🚰 *Water sources to fill upper tank*: ${formData.waterResourceCount}
+📐 *Required Plumbing Design*: ${formData.plumbingDesign}
+🗺️ *Site Visit*: ${formData.siteVisit}
+🛠️ *Help for Pre-plan Plumbing Design*: ${formData.prePlanPlumbingHelp}
 📝 *Requirements*: ${formData.description || "No specific details provided."}`;
 
     return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
@@ -686,6 +698,135 @@ export default function CustomSolutionsClient() {
                     );
                   })}
                 </div>
+              </div>
+
+              {/* Customisation & Tank/Motor Counts */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="form-customisation" className="text-xs font-bold text-primary uppercase tracking-widest block">Customisation Required?</label>
+                  <select 
+                    id="form-customisation"
+                    name="Customisation"
+                    value={formData.customisation}
+                    onChange={(e) => setFormData({ ...formData, customisation: e.target.value })}
+                    className="w-full bg-[#162133] border border-white/15 focus:border-primary rounded-xl py-3.5 px-4 text-white transition-all font-body text-sm appearance-none cursor-pointer"
+                  >
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="form-tank-count" className="text-xs font-bold text-primary uppercase tracking-widest block">How many tanks do you have?</label>
+                  <select 
+                    id="form-tank-count"
+                    name="TanksCount"
+                    value={formData.tankCount}
+                    onChange={(e) => setFormData({ ...formData, tankCount: e.target.value })}
+                    className="w-full bg-[#162133] border border-white/15 focus:border-primary rounded-xl py-3.5 px-4 text-white transition-all font-body text-sm appearance-none cursor-pointer"
+                  >
+                    <option value="1">1 Tank</option>
+                    <option value="2">2 Tanks</option>
+                    <option value="3">3 Tanks</option>
+                    <option value="4">4 Tanks</option>
+                    <option value="5+">5+ Tanks</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="form-motor-count" className="text-xs font-bold text-primary uppercase tracking-widest block">How many motors do you have?</label>
+                  <select 
+                    id="form-motor-count"
+                    name="MotorsCount"
+                    value={formData.motorCount}
+                    onChange={(e) => setFormData({ ...formData, motorCount: e.target.value })}
+                    className="w-full bg-[#162133] border border-white/15 focus:border-primary rounded-xl py-3.5 px-4 text-white transition-all font-body text-sm appearance-none cursor-pointer"
+                  >
+                    <option value="1">1 Motor</option>
+                    <option value="2">2 Motors</option>
+                    <option value="3">3 Motors</option>
+                    <option value="4+">4+ Motors</option>
+                  </select>
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="form-water-resource" className="text-xs font-bold text-primary uppercase tracking-widest block">Water sources to fill upper tank?</label>
+                  <select 
+                    id="form-water-resource"
+                    name="WaterResourcesToFillUpperTank"
+                    value={formData.waterResourceCount}
+                    onChange={(e) => setFormData({ ...formData, waterResourceCount: e.target.value })}
+                    className="w-full bg-[#162133] border border-white/15 focus:border-primary rounded-xl py-3.5 px-4 text-white transition-all font-body text-sm appearance-none cursor-pointer"
+                  >
+                    <option value="1">1 Source</option>
+                    <option value="2">2 Sources</option>
+                    <option value="3">3 Sources</option>
+                    <option value="4+">4+ Sources</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Plumbing & Site Visit options */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="form-plumbing-design" className="text-xs font-bold text-primary uppercase tracking-widest block">Required Plumbing Design?</label>
+                  <select 
+                    id="form-plumbing-design"
+                    name="PlumbingDesign"
+                    value={formData.plumbingDesign}
+                    onChange={(e) => setFormData({ ...formData, plumbingDesign: e.target.value })}
+                    className="w-full bg-[#162133] border border-white/15 focus:border-primary rounded-xl py-3.5 px-4 text-white transition-all font-body text-sm appearance-none cursor-pointer"
+                  >
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="form-site-visit" className="text-xs font-bold text-primary uppercase tracking-widest block">Site Visit Required?</label>
+                  <select 
+                    id="form-site-visit"
+                    name="SiteVisit"
+                    value={formData.siteVisit}
+                    onChange={(e) => setFormData({ ...formData, siteVisit: e.target.value })}
+                    className="w-full bg-[#162133] border border-white/15 focus:border-primary rounded-xl py-3.5 px-4 text-white transition-all font-body text-sm appearance-none cursor-pointer"
+                  >
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="form-pre-plan-plumbing" className="text-xs font-bold text-primary uppercase tracking-widest block">Help for Pre-plan Plumbing?</label>
+                  <select 
+                    id="form-pre-plan-plumbing"
+                    name="PrePlanPlumbingHelp"
+                    value={formData.prePlanPlumbingHelp}
+                    onChange={(e) => setFormData({ ...formData, prePlanPlumbingHelp: e.target.value })}
+                    className="w-full bg-[#162133] border border-white/15 focus:border-primary rounded-xl py-3.5 px-4 text-white transition-all font-body text-sm appearance-none cursor-pointer"
+                  >
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Minimum Development Period Acknowledgement */}
+              <div className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
+                <input 
+                  type="checkbox" 
+                  id="form-ack-period"
+                  name="AcknowledgeDevelopmentPeriod"
+                  required
+                  checked={formData.acknowledgedPeriod}
+                  onChange={(e) => setFormData({ ...formData, acknowledgedPeriod: e.target.checked })}
+                  className="w-4 h-4 mt-0.5 rounded border-white/15 text-primary focus:ring-primary/20 bg-white/5 cursor-pointer text-sm"
+                />
+                <label htmlFor="form-ack-period" className="text-xs text-slate-300 select-none cursor-pointer">
+                  I acknowledge that the minimum development period for custom solutions is <span className="text-primary font-bold">30 to 40 days</span>. *
+                </label>
               </div>
 
               {/* Details Text Area */}
