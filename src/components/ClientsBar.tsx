@@ -13,7 +13,7 @@ const CLIENTS = [
   },
   {
     name: "Meher Infra Solution Pvt. Ltd.",
-    logo: "/images/MEHER- INFRA-Solutions.jpeg",
+    logo: "/images/meher-infra-solutions.jpeg",
   },
   {
     name: "Sacchidanand Realities Pvt. Ltd.",
@@ -21,19 +21,16 @@ const CLIENTS = [
   },
 ];
 
-// Duplicate for seamless infinite loop
-const ALL_CLIENTS = [...CLIENTS, ...CLIENTS, ...CLIENTS];
-
 export default function ClientsBar() {
   return (
     <section className="bg-white py-14 border-t border-border-color">
       <style>{`
         @keyframes marquee-scroll {
           0% { transform: translateX(0); }
-          100% { transform: translateX(-33.333%); }
+          100% { transform: translateX(-50%); }
         }
         .clients-marquee {
-          animation: marquee-scroll 28s linear infinite;
+          animation: marquee-scroll 25s linear infinite;
           width: max-content;
         }
         .clients-marquee:hover {
@@ -57,27 +54,53 @@ export default function ClientsBar() {
         {/* Right fade */}
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-white to-transparent" />
 
-        <div className="flex gap-10 clients-marquee">
-          {ALL_CLIENTS.map((client, idx) => (
-            <div
-              key={idx}
-              className="flex-shrink-0 flex items-center justify-center bg-bg-light border border-border-color rounded-xl px-8 py-5 shadow-sm hover:shadow-md hover:border-primary transition-all duration-300 group"
-              style={{ minWidth: "200px", height: "96px" }}
-            >
-              <div className="relative w-[140px] h-[56px]">
-                <Image
-                  src={client.logo}
-                  alt={client.name}
-                  fill
-                  sizes="140px"
-                  className="object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
-                  title={client.name}
-                />
+        <div className="flex clients-marquee">
+          {/* First Set */}
+          <div className="flex gap-10 pr-10 shrink-0">
+            {CLIENTS.map((client, idx) => (
+              <div
+                key={`set1-${idx}`}
+                className="flex-shrink-0 flex items-center justify-center bg-bg-light border border-border-color rounded-xl px-8 py-5 shadow-sm hover:shadow-md hover:border-primary transition-all duration-300 group"
+                style={{ minWidth: "200px", height: "96px" }}
+              >
+                <div className="relative w-[140px] h-[56px]">
+                  <Image
+                    src={client.logo}
+                    alt={client.name}
+                    fill
+                    sizes="140px"
+                    className="object-contain transition-all duration-300"
+                    title={client.name}
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* Second Set (Duplicate for seamless infinite loop) */}
+          <div className="flex gap-10 pr-10 shrink-0">
+            {CLIENTS.map((client, idx) => (
+              <div
+                key={`set2-${idx}`}
+                className="flex-shrink-0 flex items-center justify-center bg-bg-light border border-border-color rounded-xl px-8 py-5 shadow-sm hover:shadow-md hover:border-primary transition-all duration-300 group"
+                style={{ minWidth: "200px", height: "96px" }}
+              >
+                <div className="relative w-[140px] h-[56px]">
+                  <Image
+                    src={client.logo}
+                    alt={client.name}
+                    fill
+                    sizes="140px"
+                    className="object-contain transition-all duration-300"
+                    title={client.name}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
+

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { LinkedinLogo, Drop, Quotes } from "@phosphor-icons/react/dist/ssr";
+import { LinkedinLogo, Quotes } from "@phosphor-icons/react/dist/ssr";
 import { motion, Variants } from "framer-motion";
 
 export default function Founder() {
@@ -57,14 +57,14 @@ export default function Founder() {
               
               {/* White outer frame card */}
               <div className="relative z-10 w-full rounded-3xl bg-white border border-border-color p-3 shadow-[0_20px_50px_rgba(91,184,232,0.15)] flex flex-col">
-                <div className="relative w-full rounded-2xl overflow-hidden border border-border-color bg-bg-light">
+                <div className="relative w-full rounded-2xl overflow-hidden border border-border-color bg-bg-light aspect-square">
                   <Image
-                    src="/images/Jitendra Uikey - Founder.PNG"
+                    src="/images/jitendra-uikey-founder.png"
                     alt="Jitendra Uikey — Founder, Aqua Saver"
-                    width={1536}
-                    height={2730}
-                    className="w-full h-auto object-contain"
-                    priority
+                    width={500}
+                    height={500}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                 </div>
                 
@@ -140,7 +140,7 @@ export default function Founder() {
                 href="https://www.linkedin.com/in/jitendar-uikey-2313ba181/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 bg-[#0A66C2] text-white px-6 py-3 rounded-xl hover:bg-[#0A66C2]/90 transition-all shadow-[0_8px_24px_rgba(10,102,194,0.15)] hover:shadow-[0_8px_32px_rgba(10,102,194,0.25)] font-display font-semibold text-sm hover:-translate-y-0.5 cursor-pointer"
+                className="inline-flex items-center gap-2.5 bg-[#0A66C2] text-white px-6 py-3 rounded-xl hover:bg-[#0A66C2]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0A66C2] focus-visible:ring-offset-2 transition-all shadow-[0_8px_24px_rgba(10,102,194,0.15)] hover:shadow-[0_8px_32px_rgba(10,102,194,0.25)] font-display font-semibold text-sm hover:-translate-y-0.5 cursor-pointer"
               >
                 <LinkedinLogo size={18} weight="fill" />
                 <span>Connect with Jitendra on LinkedIn</span>
